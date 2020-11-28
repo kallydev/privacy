@@ -73,8 +73,8 @@ sqlite3 database.db
 ```
 
 ```sql
-CREATE INDEX index_qq ON qq (qq, phone);
-CREATE INDEX index_jd ON jd (email, id_number, phone_number, phone_number);
+CREATE INDEX index_qq ON qq (qq_number, phone_number);
+CREATE INDEX index_jd ON jd (email, id_number, phone_number);
 ```
 
 4. 导入顺丰库
@@ -138,14 +138,14 @@ go build -o app main/main.go
 
 ### 1. 为什么代码和文档都写的这么生草？
 
-我当时只是随口说了一个时间，结果才发现时间安排得有亿点紧，于是就放飞自我了。之后会逐步进行重构，**同时也欢迎发起 PR**。
+我当时只是随口说了一个时间，结果才发现安排得有亿点紧，于是就开始放飞自我。之后会逐步进行重构，**同时也欢迎发起 PR**。
 
 ### 2. 部署或使用遇到问题如何解决?
 
 1. 在这个 Repo 发起 Issues，空余时间我会协助你解决。
 2. 把错误信息粘贴到 `https://stackoverflow.com/search?q=` 这个链接后面，然后浏览器打开。
-3. 因为个人并不喜欢回复 PM，所以 Telegram 之类问我问题的不太可能会回复。
-4. 通往罗马的道路千万条慢，自己努力吧少年。
+3. 因为个人并不喜欢回复 PM，所以 Telegram 之类问我问题不太可能会回复。
+4. 通往罗马的道路千万条，自己努力吧少年。
 
 ### 3. 为什么示例网站只支持 QQ 和手机号关系查询?
 
