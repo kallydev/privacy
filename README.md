@@ -67,7 +67,7 @@ CREATE TABLE sf
 
 把 `6.9更新总库.txt` 文件放到项目根目录下，然后执行 `python scripts/qq.py`。
 
-3.导入京东库
+3. 导入京东库
 
 把 `www_jd_com_12g.txt` 文件放到项目根目录下，然后执行 `python scripts/jd.py`。
 
@@ -110,7 +110,7 @@ git clone http://github.com/kallydev/privacy
 4. 编译前端
 
 ```bash
-cd privacy
+cd website
 yarn install
 yarn build
 ```
@@ -118,7 +118,7 @@ yarn build
 5. 编译后端
 
 ```bash
-cd ../server
+cd server
 go build -o app main/main.go
 ```
 
