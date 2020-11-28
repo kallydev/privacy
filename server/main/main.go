@@ -9,8 +9,8 @@ import (
 var configPath string
 
 func init() {
-	flag.Parse()
 	flag.StringVar(&configPath, "config", "../config.yaml", "config file path")
+  flag.Parse()
 }
 
 func main() {
