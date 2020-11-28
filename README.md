@@ -22,14 +22,17 @@
 
 1. 创建 SQLite 数据库
 
+在项目文件夹根目录下创建并进入 database 文件夹，创建数据库。
+
 ```bash
+mkdir database & cd database
 sqlite3 database.db
 ```
 
 分别执行以下 SQL 语句，用于创建 QQ / 京东 / 顺丰数据表。
 
 ```sql
-CREATE TABLE IF NOT EXISTS qq
+CREATE TABLE qq
 (
     id           BIGINT,
     qq_number    BIGINT,
@@ -38,7 +41,7 @@ CREATE TABLE IF NOT EXISTS qq
 ```
 
 ```sql
-CREATE TABLE IF NOT EXISTS jd
+CREATE TABLE jd
 (
     id           BIGINT,
     name         TEXT,
@@ -51,7 +54,7 @@ CREATE TABLE IF NOT EXISTS jd
 ```
 
 ```sql
-CREATE TABLE IF NOT EXISTS sf
+CREATE TABLE sf
 (
     id           BIGINT,
     name         TEXT,
@@ -62,11 +65,11 @@ CREATE TABLE IF NOT EXISTS sf
 
 2. 导入 QQ 库
 
-把 `6.9更新总库.txt` 文件放到 `database` 目录下，然后执行 `qq.py`。
+把 `6.9更新总库.txt` 文件放到项目根目录下，然后执行 `python scripts/qq.py`。
 
 3.导入京东库
 
-把 `www_jd_com_12g.txt` 文件放到 `database` 目录下，然后执行 `jd.py`。
+把 `www_jd_com_12g.txt` 文件放到项目根目录下，然后执行 `python scripts/jd.py`。
 
 - 创建索引
 
