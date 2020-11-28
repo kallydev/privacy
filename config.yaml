@@ -1,0 +1,16 @@
+database:
+  path: ../database/database.db
+  tables:
+    qq: true
+    jd: true
+    sf: false # Not support
+    wb: false # Not support
+
+http:
+  host: 0.0.0.0
+  port: 80
+#  tls:
+#    cert_path: server.crt
+#    key_path: server.key
+
+mask: true

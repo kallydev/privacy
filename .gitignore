@@ -1,0 +1,12 @@
+.idea
+.vscode
+
+/website/node_modules
+/website/.eslintcache
+/website/build
+/website/.DS_Store
+/website/.env.local
+/website/.env.development.local
+/website/.env.test.local
+/website/.env.production.local
+
