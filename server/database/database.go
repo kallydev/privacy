@@ -1,6 +1,8 @@
 package database
 
-import "context"
+import (
+	"context"
+)
 
 type Database interface {
 	QueryByQQNumber(ctx context.Context, qqNumber int64) ([]Model, error)

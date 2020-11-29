@@ -9,14 +9,14 @@ import (
 
 var (
 	OK                    = errors.New("ok")
-	UnknownError          = errors.New("unknown error")
 	InvalidParameterError = errors.New("invalid parameter error")
+	QueryFailedError      = errors.New("query failed error")
 )
 
 var errorMap = map[error]int{
 	OK:                    0,
-	UnknownError:          10001,
-	InvalidParameterError: 10002,
+	InvalidParameterError: 10001,
+	QueryFailedError:      10002,
 }
 
 type Response struct {
@@ -31,8 +31,7 @@ func NewResponse(ctx echo.Context, err error, data interface{}) error {
 	}
 	code, ok := errorMap[err]
 	if !ok {
-		err = UnknownError
-		code = errorMap[err]
+		code = 10000
 	}
 	return ctx.JSONPretty(http.StatusOK, &Response{
 		Code:    code,

@@ -37,7 +37,7 @@ func NewService(configPath string) *Service {
 func (svc *Service) loadRouter() {
 	instance := svc.instance
 	instance.HTTPErrorHandler = func(err error, ctx echo.Context) {
-		_ = NewResponse(ctx, UnknownError, err)
+		_ = NewResponse(ctx, err, nil)
 	}
 	instance.Static("/", "../website/build")
 	apiGroup := instance.Group("/api")

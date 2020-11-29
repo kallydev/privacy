@@ -10,7 +10,7 @@ var configPath string
 
 func init() {
 	flag.StringVar(&configPath, "config", "../config.yaml", "config file path")
-  flag.Parse()
+	flag.Parse()
 }
 
 func main() {
