@@ -29,7 +29,7 @@ mkdir database && cd database
 sqlite3 database.db
 ```
 
-分别执行以下 SQL 语句，用于创建 QQ / 京东 / 顺丰数据表。
+分别执行以下 SQL 语句，用于创建 QQ / JD / SF 数据表。
 
 ```sql
 CREATE TABLE qq
@@ -67,7 +67,7 @@ CREATE TABLE sf
 
 把 `6.9更新总库.txt` 文件放到项目根目录下的`source`目录，然后执行 `python scripts/qq.py`。
 
-3. 导入京东库
+3. 导入 JD 库
 
 把 `www_jd_com_12g.txt` 文件放到项目根目录下的`source`目录，然后执行 `python scripts/jd.py`。
 
@@ -85,7 +85,7 @@ CREATE INDEX index_jd_id_number ON jd (id_number);
 CREATE INDEX index_jd_phone_number ON jd (phone_number);
 ```
 
-4. 导入顺丰库
+4. 导入 SF 和 WB 库
 
 还没来得及写，欢迎 PR 或者等我明天再写。
 
@@ -137,8 +137,8 @@ go build -o app main/main.go
 
 - [ ] 编译 Docker 镜像
 - [ ] 取模分表
-- [ ] 微博账号和手机号关联查询
-- [ ] 重构所有导入脚本以及编写微博和顺丰的导入脚本
+- [ ] WB 账号和手机号关联查询
+- [ ] 重构所有导入脚本以及编写 WB 和 SF 的导入脚本
 - [ ] 自动加载支持的数据表
 - [ ] 示例网站支持以上新的功能
 
