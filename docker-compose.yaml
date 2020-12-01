@@ -3,7 +3,7 @@ version: "3.3"
 services:
   server:
     build: .
-    image: privacy
+    image: privacy:alpine
     network_mode: bridge
     volumes:
       - ./database:/opt/privacy/database

@@ -1,33 +1,23 @@
-FROM node:15-buster
+FROM node:15-alpine3.12
 
-RUN apt update && apt install software-properties-common -y && apt clean && rm -rf /var/lib/apt/lists/*
+RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositories
+RUN apk add --update --no-cache sqlite python3 git moreutils yq gcc make libc-dev wget
 
-RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys CC86BB64
-
-RUN add-apt-repository "deb http://ppa.launchpad.net/rmescandon/yq/ubuntu focal main" -y
-
-RUN apt update && apt install sqlite python git moreutils yq -y && apt clean && rm -rf /var/lib/apt/lists/*
+# 修复alpine的golang支持
+RUN mkdir /lib64 && ln -s /lib/libc.musl-x86_64.so.1 /lib64/ld-linux-x86-64.so.2
 
 WORKDIR /tmp
 
-ADD https://golang.org/dl/go1.15.5.linux-amd64.tar.gz /tmp/go1.15.5.linux-amd64.tar.gz
+RUN wget https://golang.org/dl/go1.15.5.linux-amd64.tar.gz && tar -C /usr/local -xzf go1.15.5.linux-amd64.tar.gz && echo 'export PATH=$PATH:/usr/local/go/bin' >> /etc/profile && rm -f /tmp/go1.15.5.linux-amd64.tar.gz
 
-RUN tar -C /usr/local -xzf go1.15.5.linux-amd64.tar.gz && echo 'export PATH=$PATH:/usr/local/go/bin' >> /etc/profile
+ADD build.sh /tmp/build.sh
+RUN chmod +x /tmp/build.sh && /tmp/build.sh
 
-WORKDIR /opt
+WORKDIR /opt/privacy
 
-RUN git clone https://github.com/kallydev/privacy
-
-WORKDIR /opt/privacy/server
-
-RUN export PATH=$PATH:/usr/local/go/bin && go build -o app main/main.go
-
-WORKDIR /opt/privacy/website
-
-RUN yarn install && yarn build
-
+ADD scripts/ /opt/privacy/scripts/
+ADD config.yaml /opt/privacy/config.yaml
 ADD entrypoint.sh /opt/privacy/entrypoint.sh
-
 RUN chmod +x /opt/privacy/entrypoint.sh
 
 VOLUME [ "/opt/privacy/database", "/opt/privacy/source" ]
@@ -43,7 +33,5 @@ ENV port=80
 ENV mask=true
 
 EXPOSE 80
-
-WORKDIR /opt/privacy
 
 ENTRYPOINT [ "/opt/privacy/entrypoint.sh" ]

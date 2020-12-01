@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 # 设置环境变量
 yq w config.yaml database.tables.qq $qq | yq w - database.tables.jd $jd | yq w - database.tables.sf $sf | yq w - database.tables.wb $wb | yq w - http.host $host | yq w - http.port $port | yq w - mask $mask | sponge config.yaml
