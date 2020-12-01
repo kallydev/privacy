@@ -99,5 +99,5 @@ class Scanner:
 
 
 if __name__ == '__main__':
-    scanner = Scanner("database/database.db", "6.9更新总库.txt")
+    scanner = Scanner("database/database.db", "source/6.9更新总库.txt")
     scanner.start()

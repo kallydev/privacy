@@ -25,7 +25,7 @@
 在项目文件夹根目录下创建并进入 database 文件夹，创建数据库。
 
 ```bash
-mkdir database & cd database
+mkdir database && cd database
 sqlite3 database.db
 ```
 
@@ -65,11 +65,11 @@ CREATE TABLE sf
 
 2. 导入 QQ 库
 
-把 `6.9更新总库.txt` 文件放到项目根目录下，然后执行 `python scripts/qq.py`。
+把 `6.9更新总库.txt` 文件放到项目根目录下的`source`目录，然后执行 `python scripts/qq.py`。
 
 3. 导入京东库
 
-把 `www_jd_com_12g.txt` 文件放到项目根目录下，然后执行 `python scripts/jd.py`。
+把 `www_jd_com_12g.txt` 文件放到项目根目录下的`source`目录，然后执行 `python scripts/jd.py`。
 
 - 创建索引
 
@@ -100,8 +100,8 @@ npm install -g yarn
 2. 安装 Golang
 
 ```bash
-sudo apt install -y snap
-sudo snap install golang --classic
+sudo apt install -y snapd
+sudo snap install go --classic
 ```
 
 3. 下载源代码

@@ -107,5 +107,5 @@ class Converter(object):
 
 
 if __name__ == '__main__':
-    converter = Converter("database/database.db", "www_jd_com_12g.txt")
+    converter = Converter("database/database.db", "source/www_jd_com_12g.txt")
     converter.start()

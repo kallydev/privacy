@@ -1,0 +1,20 @@
+version: "3.3"
+
+services:
+  server:
+    build: .
+    image: privacy
+    network_mode: bridge
+    volumes:
+      - ./database:/opt/privacy/database
+      - ./source:/opt/privacy/source
+    environment:
+      - qq=true
+      - jd=true
+      - sf=false
+      - wb=false
+      - host=0.0.0.0
+      - port=80
+      - mask=true
+    ports:
+      - 80:80
